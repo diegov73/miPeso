@@ -1,33 +1,37 @@
 import { useState } from 'react'
 import './App.css'
 
-interface PesoTracker{
-  peso: number
+interface registroPeso{
+  id: string,
+  peso: number,
+  date: string
 }
 
 function App() {
-  const [count, setCount] = useState(0)
   const [peso, setPeso] = useState<number>(0)
 
-  const 
-  return (
-    <div>
-      <button
-        onClick={()=>setCount((count)=>count + 1)}
-      >
-        valor actual {count}
-      </button>
-      <button
-        onClick={()=>setCount(0)}
-      >
-        reset
-      </button>
-    
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPeso(Number(e.target.value));
+  }
 
+  const submitPeso = (peso: number) : void =>{
+    console.log(`se ha registrado el peso ${peso}`);
+  }
+
+  return(
+    <div>
       <div>
         setPeso
-        <button>
-          fornai
+        <input
+          id="pesoInput"
+          type="number"
+          onChange={handleChange}
+          value={peso}
+        />
+        <button
+          onClick={() => submitPeso(peso)}
+        >
+          registrar peso {peso}
         </button>
       </div>
     </div>

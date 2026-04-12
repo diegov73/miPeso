@@ -7,12 +7,12 @@ import uuid
 class Base(DeclarativeBase):
     pass
 
-class Peso(Base):
+class RegistroPeso(Base):
 
-    __tablename__ = "peso"
+    __tablename__ = "Registro"
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, server_default=func.gen_random_uuid())
 
-    weight: Mapped[float] = mapped_column(Float) 
+    peso: Mapped[float] = mapped_column(Float) 
 
-    date_measured: Mapped[Date] = mapped_column(Date, server_default=func.current_timestamp()) 
+    fecha: Mapped[DateTime] = mapped_column(DateTime, server_default=func.current_timestamp()) 
